@@ -4,7 +4,7 @@ layout {
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
                 format_left  "{mode} {tabs}"
-                format_right "{session}"
+                format_right "{session} {command_time}"
                 format_space ""
 
                 background "#1c1c1c"
@@ -30,8 +30,10 @@ layout {
                 command_git_branch_interval    "10"
                 command_git_branch_rendermode  "static"
 
-                datetime        "#[fg=#6272a4,bold] {format} "
-                datetime_format "%H:%M"
+                command_time_command     "date +%H:%M"
+                command_time_format      "#[fg=#6272a4,bold] {stdout}"
+                command_time_interval    "1"
+                command_time_rendermode  "static"
 
                 notification_format_unread "#[fg=#ff5555,bg=#1c1c1c] ({count})"
                 notification_format_no_notifications ""
