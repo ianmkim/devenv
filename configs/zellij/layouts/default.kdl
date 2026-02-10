@@ -1,0 +1,43 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                format_left  "{mode} {tabs}"
+                format_right "{session}"
+                format_space ""
+
+                background "#1c1c1c"
+
+                mode_normal        "#[bg=#1c1c1c,fg=#50fa7b,bold] NORMAL "
+                mode_locked        "#[bg=#1c1c1c,fg=#ff5555,bold] LOCKED "
+                mode_resize        "#[bg=#1c1c1c,fg=#ffb86c,bold] RESIZE "
+                mode_pane          "#[bg=#1c1c1c,fg=#8be9fd,bold] PANE "
+                mode_tab           "#[bg=#1c1c1c,fg=#ff79c6,bold] TAB "
+                mode_scroll        "#[bg=#1c1c1c,fg=#f1fa8c,bold] SCROLL "
+                mode_session       "#[bg=#1c1c1c,fg=#6272a4,bold] SESSION "
+                mode_tmux          "#[bg=#1c1c1c,fg=#ffb86c,bold] TMUX "
+                mode_enter_search  "#[bg=#1c1c1c,fg=#f1fa8c,bold] SEARCH "
+                mode_search        "#[bg=#1c1c1c,fg=#f1fa8c,bold] SEARCH "
+                mode_rename_tab    "#[bg=#1c1c1c,fg=#ff79c6,bold] RENAME "
+                mode_rename_pane   "#[bg=#1c1c1c,fg=#8be9fd,bold] RENAME "
+
+                tab_normal   "#[bg=#1c1c1c,fg=#f8f8f2] {name} "
+                tab_active   "#[bg=#4d4d4d,fg=#f8f8f2,bold] {name} "
+
+                command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+                command_git_branch_format      "#[fg=#ff79c6] {stdout} "
+                command_git_branch_interval    "10"
+                command_git_branch_rendermode  "static"
+
+                datetime        "#[fg=#6272a4,bold] {format} "
+                datetime_format "%H:%M"
+
+                notification_format_unread "#[fg=#ff5555,bg=#1c1c1c] ({count})"
+                notification_format_no_notifications ""
+
+                tab_rename "#[bg=#1c1c1c,fg=#f1fa8c] {name} "
+            }
+        }
+    }
+}
