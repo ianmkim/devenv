@@ -1,0 +1,38 @@
+# Ghostty configuration
+# Docs: https://ghostty.org/docs/config
+
+# Black theme with transparent, blurred background
+background = 000000
+foreground = ffffff
+background-opacity = 0.8
+background-blur = 20
+
+# Tab bar integrated into the titlebar, matching the terminal background
+macos-titlebar-style = tabs
+
+# Block cursor (disable shell-integration's prompt cursor override)
+cursor-style = block
+shell-integration-features = no-cursor
+
+# Cursor trail animation
+custom-shader = ~/.config/ghostty/shaders/cursor_trail.glsl
+custom-shader-animation = true
+
+# Vim-style new splits (s like :sp, shift+s like :vsp)
+keybind = super+s=new_split:down
+keybind = super+shift+s=new_split:right
+
+# Vim-style split navigation (overrides cmd+j scroll_to_selection, cmd+k clear_screen)
+keybind = super+h=goto_split:left
+keybind = super+j=goto_split:down
+keybind = super+k=goto_split:up
+keybind = super+l=goto_split:right
+
+# Vim-style split resizing
+keybind = super+shift+h=resize_split:left,10
+keybind = super+shift+j=resize_split:down,10
+keybind = super+shift+k=resize_split:up,10
+keybind = super+shift+l=resize_split:right,10
+
+# Re-home clear_screen since cmd+k is taken
+keybind = super+ctrl+k=clear_screen
